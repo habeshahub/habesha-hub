@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .service-section,
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 40px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 0 2px rgba(0, 255, 255, 0.2);
+      box-sizing: border-box;
+    }
+
+    .service-section h1 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #00ffff;
+      text-align: center;
+    }
+
+    .service-section p {
+      font-size: 1.1em;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00ffff;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #0ff;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #0ff;
+      border-radius: 4px;
+      background: rgb(59, 37, 84);
+      color: #fff;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    select {
+      appearance: none;
+    }
+
+    .error-message {
+      color: #ff6666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .payment-info {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #00ffff44;
+      border-radius: 4px;
+      background-color: #002b36;
+    }
+
+    .payment-info h3 {
+      margin-top: 0;
+      color: #00ffff;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .payment-info p {
+      margin-bottom: 8px;
+      color: #ccc;
+      word-break: break-word;
+    }
+
+    .warning-message {
+      color: orange;
+      font-size: 0.9em;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid orange;
+      border-radius: 4px;
+      background-color: #332100;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9em;
+    }
+
+    .login-link a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      background-color: #00ffff;
+      color: #000;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00cccc;
+    }
+
+    @media (max-width: 600px) {
+      .service-section,
+      .container {
+        padding: 15px;
+      }
+
+      .service-section p {
+        font-size: 1em;
+      }
+
+      h2, .service-section h1 {
+        font-size: 1.5em;
+      }
+
+      input, select, button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="service-section">
+    <h1>Our Services</h1>
+    <p>
+      We offer:<br>
+      1. Stream high-quality HD and 4K Ethiopian adult content with daily updates.<br>
+      2. 100% private and secure browsing experience.<br>
+      3. Exclusive content for premium members.<br>
+      4. Fully mobile-friendly, no app needed.<br>
+      5. Safe, discreet payment and fast customer support.<br>
+      Supporting CBE, Telebirr, USDT, and TON for secure transactions.
+    </p>
+  </div>
+
+  <div class="container">
+    <h2>Registration</h2>
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <div class="error-message" id="nameError"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <div class="error-message" id="emailError"></div>
+      </div>
+      <div class="form-group">
+        <label for="telegram">Telegram Username:</label>
+        <input type="text" id="telegram" name="telegram" required />
+        <div class="error-message" id="telegramError"></div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <div class="error-message" id="passwordError"></div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required />
+        <div class="error-message" id="confirmPasswordError"></div>
+      </div>
+      <div class="form-group">
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="">Select Payment Method</option>
+          <option value="cbe">CBE</option>
+          <option value="telebirr">Telebirr</option>
+          <option value="usdt_trc20">USDT (TRC20)</option>
+          <option value="ton">TON</option>
+        </select>
+        <div class="error-message" id="paymentMethodError"></div>
+      </div>
+
+      <div id="paymentInfoContainer" class="hidden"></div>
+
+      <div class="form-group hidden" id="screenshotUpload">
+        <label for="paymentScreenshot">Payment Confirmation Screenshot:</label>
+        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" />
+        <div class="error-message" id="screenshotError"></div>
+      </div>
+
+      <div class="form-group hidden" id="paymentConfirmation">
+        <p class="warning-message">Please ensure you have completed the payment using the details above before proceeding.</p>
+        <div class="checkbox-group">
+          <input type="checkbox" id="paymentMade" name="paymentMade" />
+          <label for="paymentMade">I have made the payment</label>
+        </div>
+        <div class="error-message" id="paymentMadeError"></div>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+    <div class="login-link">
+      Already have an account? <a href="login.html">Login here</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const paymentMethodSelect = document.getElementById('paymentMethod');
+    const paymentInfoContainer = document.getElementById('paymentInfoContainer');
+    const screenshotUploadDiv = document.getElementById('screenshotUpload');
+    const screenshotInput = document.getElementById('paymentScreenshot');
+    const paymentConfirmationDiv = document.getElementById('paymentConfirmation');
+    const paymentMadeCheckbox = document.getElementById('paymentMade');
+
+    const errorFields = {
+      name: document.getElementById('nameError'),
+      email: document.getElementById('emailError'),
+      telegram: document.getElementById('telegramError'),
+      password: document.getElementById('passwordError'),
+      confirmPassword: document.getElementById('confirmPasswordError'),
+      paymentMethod: document.getElementById('paymentMethodError'),
+      screenshot: document.getElementById('screenshotError'),
+      paymentMade: document.getElementById('paymentMadeError'),
+    };
+
+    const paymentDetails = {
+      cbe: {
+        title: "CBE Bank Transfer",
+        instructions: "1000593737587",
+        requiresScreenshot: true
+      },
+      telebirr: {
+        title: "Telebirr",
+        instructions: "0950327447",
+        requiresScreenshot: true
+      },
+      usdt_trc20: {
+        title: "USDT (TRC20)",
+        instructions: "TFogz1zz53ZXnuZ7oaKXZySg8LgqmLwNBA     -  Network: TRC20",
+        requiresScreenshot: true
+      },
+      ton: {
+        title: "TON",
+        instructions: "Wallet:UQAHH3BGCL1GzsjHgw0XASmy1OkWVR9t5YvYwphUDHGkzpVx   –  Network: TON",
+        requiresScreenshot: true
+      }
+    };
+
+    paymentMethodSelect.addEventListener('change', () => {
+      const method = paymentMethodSelect.value;
+      paymentInfoContainer.innerHTML = '';
+      paymentInfoContainer.classList.add('hidden');
+      screenshotUploadDiv.classList.add('hidden');
+      paymentConfirmationDiv.classList.add('hidden');
+      screenshotInput.removeAttribute('required');
+
+      if (paymentDetails[method]) {
+        const info = paymentDetails[method];
+        paymentInfoContainer.innerHTML = `
+          <div class="payment-info">
+            <h3>${info.title}</h3>
+            <p>${info.instructions}</p>
+          </div>`;
+        paymentInfoContainer.classList.remove('hidden');
+        paymentConfirmationDiv.classList.remove('hidden');
+        if (info.requiresScreenshot) {
+          screenshotUploadDiv.classList.remove('hidden');
+          screenshotInput.setAttribute('required', 'required');
+        }
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      let isValid = true;
+
+      const values = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        telegram: form.telegram.value.trim(),
+        password: form.password.value,
+        confirmPassword: form.confirmPassword.value,
+        paymentMethod: form.paymentMethod.value
+      };
+
+      Object.values(errorFields).forEach(el => el.textContent = '');
+
+      if (!values.name) {
+        errorFields.name.textContent = "Name is required.";
+        isValid = false;
+      }
+      if (!values.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+        errorFields.email.textContent = "Valid email is required.";
+        isValid = false;
+      }
+      if (!values.telegram) {
+        errorFields.telegram.textContent = "Telegram username required.";
+        isValid = false;
+      }
+      if (!values.password || values.password.length < 6) {
+        errorFields.password.textContent = "Password must be at least 6 characters.";
+        isValid = false;
+      }
+      if (values.password !== values.confirmPassword) {
+        errorFields.confirmPassword.textContent = "Passwords do not match.";
+        isValid = false;
+      }
+      if (!values.paymentMethod) {
+        errorFields.paymentMethod.textContent = "Please select a payment method.";
+        isValid = false;
+      }
+      if (!screenshotUploadDiv.classList.contains('hidden') && !screenshotInput.files.length) {
+        errorFields.screenshot.textContent = "Upload payment screenshot.";
+        isValid = false;
+      }
+      if (!paymentConfirmationDiv.classList.contains('hidden') && !paymentMadeCheckbox.checked) {
+        errorFields.paymentMade.textContent = "Confirm payment checkbox required.";
+        isValid = false;
+      }
+
+      if (isValid) {
+        window.location.href = 'congra.html';
+      }
+    });
+  </script>
+</body>
+</html>
